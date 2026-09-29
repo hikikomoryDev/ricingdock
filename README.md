@@ -83,6 +83,15 @@ settings, drives a virtual pointer and keyboard, and takes screenshots into
 `test/out/`. GNOME 49 runs in a podman container built from
 `test/containers/`.
 
+## Support
+
+RicingDock is free. If you like it, you can send a tip in SOL or any Solana
+token to:
+
+```
+JG5nXAEqFaBvMttK59hN1qquNHUxJhF7AAmPYkZ8Gci
+```
+
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).
