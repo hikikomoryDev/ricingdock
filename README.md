@@ -85,8 +85,11 @@ settings, drives a virtual pointer and keyboard, and takes screenshots into
 
 ## Support
 
-RicingDock is free. If you like it, you can send a tip in SOL or any Solana
-token to:
+RicingDock is free. If you like it, you can send a tip.
+
+**Network: Solana** (SOL or any SPL token such as USDC or USDT on Solana).
+Send only through the Solana network; the same tokens sent over Ethereum,
+Tron, BNB Chain or any other network will be lost.
 
 ```
 JG5nXAEqFaBvMttK59hN1qquNHUxJhF7AAmPYkZ8Gci
