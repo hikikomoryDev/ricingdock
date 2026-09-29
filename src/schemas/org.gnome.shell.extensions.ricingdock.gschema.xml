@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <enum id="org.gnome.shell.extensions.ricingdock.position">
+    <value nick="bottom" value="0"/>
+    <value nick="left" value="1"/>
+    <value nick="right" value="2"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.ricingdock.mode">
+    <value nick="island" value="0"/>
+    <value nick="full" value="1"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.ricingdock.alignment">
+    <value nick="start" value="0"/>
+    <value nick="center" value="1"/>
+    <value nick="end" value="2"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.ricingdock.magnify-style">
+    <value nick="single" value="0"/>
+    <value nick="wave" value="1"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.ricingdock.apps-position">
+    <value nick="start" value="0"/>
+    <value nick="end" value="1"/>
+    <value nick="start-edge" value="2"/>
+    <value nick="end-edge" value="3"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.ricingdock.visibility">
+    <value nick="fixed" value="0"/>
+    <value nick="intellihide" value="1"/>
+    <value nick="autohide" value="2"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.ricingdock.indicator">
+    <value nick="dots" value="0"/>
+    <value nick="pill" value="1"/>
+    <value nick="line" value="2"/>
+    <value nick="none" value="3"/>
+  </enum>
+  <enum id="org.gnome.shell.extensions.ricingdock.click">
+    <value nick="cycle" value="0"/>
+    <value nick="focus" value="1"/>
+  </enum>
+
+  <schema id="org.gnome.shell.extensions.ricingdock" path="/org/gnome/shell/extensions/ricingdock/">
+    <!-- Layout -->
+    <key name="position" enum="org.gnome.shell.extensions.ricingdock.position">
+      <default>'bottom'</default>
+    </key>
+    <key name="alignment" enum="org.gnome.shell.extensions.ricingdock.alignment">
+      <default>'center'</default>
+      <summary>Where along the edge the island sits, or where the icons sit in a full-width dock. Start is left, or top on a side dock.</summary>
+    </key>
+    <key name="padding-sides" type="i">
+      <range min="0" max="96"/>
+      <default>8</default>
+      <summary>Space at both ends of the dock, the same left and right (top and bottom on a side dock)</summary>
+    </key>
+    <key name="dock-height" type="i">
+      <range min="24" max="200"/>
+      <default>76</default>
+      <summary>Thickness of the dock; the icons fill what the paddings leave</summary>
+    </key>
+    <key name="padding-top" type="i">
+      <range min="0" max="64"/>
+      <default>8</default>
+      <summary>Space above the icons (on a side dock: the side away from the screen edge)</summary>
+    </key>
+    <key name="padding-bottom" type="i">
+      <range min="0" max="64"/>
+      <default>8</default>
+      <summary>Space below the icons (on a side dock: the side at the screen edge)</summary>
+    </key>
+    <!-- Unused since dock-height; kept because a running older version
+         reads them on re-enable (unlock), and GSettings aborts the shell on
+         a missing key. -->
+    <key name="icon-size" type="i">
+      <range min="16" max="128"/>
+      <default>48</default>
+    </key>
+    <key name="padding" type="i">
+      <range min="0" max="32"/>
+      <default>8</default>
+    </key>
+    <key name="padding-linked" type="b">
+      <default>true</default>
+      <summary>Change both paddings together, keeping their ratio</summary>
+    </key>
+    <key name="spacing" type="i">
+      <range min="0" max="32"/>
+      <default>4</default>
+    </key>
+    <key name="margin" type="i">
+      <range min="0" max="64"/>
+      <default>10</default>
+      <summary>Gap between the island and the screen edge; 0 attaches it to the edge. The full-width dock always sits on the edge.</summary>
+    </key>
+    <key name="mode" enum="org.gnome.shell.extensions.ricingdock.mode">
+      <default>'full'</default>
+      <summary>Island floats around the icons; full spans the whole screen edge</summary>
+    </key>
+    <key name="magnify" type="b">
+      <default>true</default>
+    </key>
+    <key name="magnify-style" enum="org.gnome.shell.extensions.ricingdock.magnify-style">
+      <default>'single'</default>
+      <summary>Grow only the icon under the pointer, or a wave that lifts its neighbours too</summary>
+    </key>
+    <key name="magnify-push" type="b">
+      <default>false</default>
+      <summary>Neighbours move aside to make room; off: the icon grows over its own place and the row never moves</summary>
+    </key>
+    <key name="magnify-active" type="b">
+      <default>true</default>
+      <summary>Keep the icon of the app in focus magnified while the pointer is away from the dock</summary>
+    </key>
+    <key name="magnify-scale" type="d">
+      <range min="1.0" max="2.5"/>
+      <default>1.3</default>
+    </key>
+    <key name="magnify-spread" type="d">
+      <range min="1.0" max="5.0"/>
+      <default>2.5</default>
+      <summary>How many icons around the pointer grow, in icon widths</summary>
+    </key>
+
+    <!-- Look -->
+    <key name="background-color" type="s">
+      <default>'rgba(27,29,43,0.72)'</default>
+    </key>
+    <key name="blur" type="b">
+      <default>true</default>
+      <summary>Blur the wallpaper behind the dock</summary>
+    </key>
+    <key name="blur-radius" type="i">
+      <range min="0" max="100"/>
+      <default>40</default>
+    </key>
+    <key name="blur-brightness" type="d">
+      <range min="0.0" max="1.0"/>
+      <default>0.8</default>
+    </key>
+    <key name="corner-radius" type="i">
+      <range min="0" max="64"/>
+      <default>22</default>
+    </key>
+    <key name="border-width" type="i">
+      <range min="0" max="8"/>
+      <default>1</default>
+    </key>
+    <key name="border-color" type="s">
+      <default>'rgba(238,240,247,0.14)'</default>
+    </key>
+    <key name="shadow" type="b">
+      <default>true</default>
+    </key>
+    <key name="accent-color" type="s">
+      <default>'rgb(255,122,154)'</default>
+      <summary>Color of running indicators, badges and highlights</summary>
+    </key>
+    <key name="indicator-style" enum="org.gnome.shell.extensions.ricingdock.indicator">
+      <default>'dots'</default>
+    </key>
+    <key name="hover-highlight" type="b">
+      <default>false</default>
+      <summary>Light up the tile under the pointer</summary>
+    </key>
+
+    <!-- Behaviour -->
+    <key name="visibility" enum="org.gnome.shell.extensions.ricingdock.visibility">
+      <default>'intellihide'</default>
+    </key>
+    <key name="show-running" type="b">
+      <default>true</default>
+      <summary>Show running apps that are not pinned</summary>
+    </key>
+    <key name="show-apps-button" type="b">
+      <default>true</default>
+    </key>
+    <key name="show-apps-position" enum="org.gnome.shell.extensions.ricingdock.apps-position">
+      <default>'start-edge'</default>
+      <summary>Show Apps button: before or after the icons, or at the far start or end of the dock (the screen edge when full width)</summary>
+    </key>
+    <!-- Replaced by show-apps-position; kept so older builds still find it. -->
+    <key name="show-apps-at-start" type="b">
+      <default>false</default>
+    </key>
+    <key name="click-action" enum="org.gnome.shell.extensions.ricingdock.click">
+      <default>'cycle'</default>
+    </key>
+    <key name="scroll-cycles" type="b">
+      <default>true</default>
+      <summary>Scroll over a running app to switch between its windows</summary>
+    </key>
+    <key name="show-labels" type="b">
+      <default>false</default>
+    </key>
+    <key name="animation-speed" type="i">
+      <range min="25" max="300"/>
+      <default>100</default>
+      <summary>Speed of all dock animations in percent: 100 is normal, lower is slower, higher is faster</summary>
+    </key>
+    <key name="attention-bounce" type="b">
+      <default>true</default>
+      <summary>Bounce when an app gets a new message or asks for attention</summary>
+    </key>
+    <key name="number-hints" type="b">
+      <default>true</default>
+      <summary>While Super is held, show 1–9 on the pinned icons (Super+number opens that app)</summary>
+    </key>
+    <key name="launch-bounce" type="b">
+      <default>true</default>
+    </key>
+    <key name="show-badges" type="b">
+      <default>true</default>
+      <summary>Unread counters and progress reported by apps</summary>
+    </key>
+    <key name="hide-overview-dash" type="b">
+      <default>true</default>
+      <summary>Hide the stock GNOME dash in the overview</summary>
+    </key>
+  </schema>
+</schemalist>

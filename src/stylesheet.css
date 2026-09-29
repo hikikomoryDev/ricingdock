@@ -1,0 +1,65 @@
+/* Colors, radii and shadows that the user picks are set inline from
+   settings; this file only holds the fixed parts. */
+
+.ricingdock-item {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+}
+
+.ricingdock-item:focus .ricingdock-tile {
+  box-shadow: inset 0 0 0 2px rgba(238, 240, 247, 0.5);
+}
+
+.ricingdock-tile {
+  transition-duration: 120ms;
+}
+
+.ricingdock-tile:hover {
+  background-color: rgba(238, 240, 247, 0.13);
+}
+
+.ricingdock-tile:active,
+.ricingdock-tile:checked {
+  background-color: rgba(238, 240, 247, 0.22);
+}
+
+.ricingdock-grid-icon {
+  color: #eef0f7;
+}
+
+.ricingdock-separator {
+  background-color: rgba(238, 240, 247, 0.22);
+}
+
+.ricingdock-placeholder {
+  border-radius: 12px;
+  background-color: rgba(238, 240, 247, 0.08);
+}
+
+.ricingdock-label {
+  background-color: rgba(27, 29, 43, 0.94);
+  color: #eef0f7;
+  border: 1px solid rgba(238, 240, 247, 0.12);
+  border-radius: 9px;
+  padding: 5px 11px;
+  font-weight: 600;
+  font-size: 10.5pt;
+}
+
+.ricingdock-badge {
+  font-weight: 800;
+  padding: 1px 5px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+.ricingdock-progress-track {
+  background-color: rgba(27, 29, 43, 0.7);
+  border-radius: 99px;
+}
+
+.ricingdock-progress-fill {
+  border-radius: 99px;
+}

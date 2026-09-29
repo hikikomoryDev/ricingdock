@@ -1,0 +1,13 @@
+{
+  "uuid": "ricingdock@hikikomoriDev",
+  "name": "RicingDock",
+  "description": "A dock you rice yourself: a floating island or a full-width bar, frosted glass, smooth magnification and every size, color and gap on a slider.\n\n• Island or full width, at the bottom, left or right, aligned left, center or right\n• Frosted glass: opacity, blur and blur brightness; rounded corners, border, shadow\n• Magnification of the icon under the pointer (or a macOS-like wave), jitter-free, with neighbours making room only when needed\n• The active app's icon stays slightly bigger and doesn't react to hover\n• Running indicators (dots, pill, line), unread counters and progress (Telegram, Thunderbird, browsers), a bounce on launch and on new messages\n• Show Apps button before or after the icons, or pinned to either end\n• Drag icons to reorder or pin, drop on Show Apps to unpin\n• Hold Super to see 1–9 hints for Super+number\n• Always visible, smart hide or auto hide\n• Dock height with top and bottom padding (linked or separate), side padding, spacing\n• Animation speed, and two ready-made looks: Dark Mint and Dark Glass\n\nReplaces the Ubuntu Dock / Dash to Dock: turn those off to avoid two docks. From the maker of RicingTab.",
+  "url": "https://github.com/hikikomoryDev/ricingdock",
+  "shell-version": [
+    "49",
+    "50"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.ricingdock",
+  "version-name": "1.0",
+  "version": 1
+}

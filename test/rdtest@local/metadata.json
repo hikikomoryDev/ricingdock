@@ -1,0 +1,7 @@
+{
+  "uuid": "rdtest@local",
+  "name": "RicingDock test driver",
+  "description": "Runs a scenario inside a headless shell: moves the pointer, clicks, takes screenshots.",
+  "shell-version": ["48", "49", "50"],
+  "version": 1
+}
