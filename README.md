@@ -43,6 +43,12 @@ off (two docks would fight):
 curl -fsSL https://raw.githubusercontent.com/hikikomoryDev/ricingdock/main/get.sh | bash
 ```
 
+No curl on a fresh system? The same with wget:
+
+```
+wget -qO- https://raw.githubusercontent.com/hikikomoryDev/ricingdock/main/get.sh | bash
+```
+
 Then log out and back in: GNOME on Wayland only loads new extensions at
 login.
 
