@@ -36,24 +36,26 @@ and gap on a slider. From the maker of RicingTab.
 
 ## Install
 
-From [extensions.gnome.org](https://extensions.gnome.org/) (search for
-RicingDock), or with the Extension Manager app.
-
-RicingDock replaces Ubuntu Dock / Dash to Dock. Turn those off, or you will
-have two docks:
+One line installs the latest release for your user and turns Ubuntu Dock
+off (two docks would fight):
 
 ```
-gnome-extensions disable ubuntu-dock@ubuntu.com
+curl -fsSL https://raw.githubusercontent.com/hikikomoryDev/ricingdock/main/get.sh | bash
 ```
 
-Manual install from a release zip:
+Then log out and back in: GNOME on Wayland only loads new extensions at
+login.
+
+Or by hand: download `ricingdock@hikikomoriDev.shell-extension.zip` from the
+[latest release](https://github.com/hikikomoryDev/ricingdock/releases/latest),
+then
 
 ```
 gnome-extensions install --force ricingdock@hikikomoriDev.shell-extension.zip
+gnome-extensions disable ubuntu-dock@ubuntu.com
 ```
 
-then log out and back in (GNOME on Wayland only loads new extensions at
-login) and enable it in Extensions.
+log out and back in, and enable it in Extensions.
 
 ## Compatibility
 
@@ -72,7 +74,7 @@ GNOME Shell 49 and 50. Every release runs its full test suite on both
 
 ```
 ./install.sh --dev        # install through a loader: later runs reload in place
-./pack.sh                 # build the zip for extensions.gnome.org into dist/
+./pack.sh                 # build the release zip into dist/
 test/run.sh scenarios/tour.js                  # one scenario, headless GNOME 50
 test/podman.sh 49 scenarios/tour.js            # the same on GNOME 49 (Fedora 43)
 test/suite.sh 50                               # every scenario on GNOME 50
